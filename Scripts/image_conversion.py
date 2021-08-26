@@ -1,6 +1,7 @@
 # To convert RGB to HSL and vice-versa 
 from numba import jit
 import numpy as np
+import colorsys
 
 @jit(nopython=True)
 def RGBtoHSL(r, g, b):
@@ -34,13 +35,13 @@ def RGBtoHSL(r, g, b):
         saturation = delta/(1 - abs(2*lightness - 1))
     
     saturation = abs(int(saturation*100))
-    lightness = abs(int(lightness*100))
+    lightness = abs(int(lightness*256))
     
     return hue, saturation, lightness
 
 @jit(nopython=True)
 def HSLtoRGB(h, s, l):
-    s, l = s/100, l/100
+    s, l = s/100, l/255
     c = (1-abs(2*l - 1)) * s
     x = c * (1-abs((h/60) % 2 - 1))
     m = l - c/2
@@ -63,18 +64,25 @@ def HSLtoRGB(h, s, l):
     green = int((green + m) * 255)
     return red, green, blue
 
-@jit(nopython=True)
+def colorsys_RGB2HSV(img_arr):
+    rgb_to_hsv = np.vectorize(colorsys.rgb_to_hsv)
+    r, g, b, a = np.rollaxis(img_arr, axis=-1)
+    h, s, v = rgb_to_hsv(r, g, b)
+    return h, s, v, a
+
+
+def colorsys_HSV2RGB(h, s, v, a):
+    hsv_to_rgb = np.vectorize(colorsys.hsv_to_rgb)
+    r, g, b = hsv_to_rgb(h, s, v)
+    img_arr = np.dstack((r, g, b, a))
+    return img_arr
+
+def colorsys_getRGBA(img_arr):
+    r, g, b, a = np.rollaxis(img_arr, axis=-1)
+    return r, g, b, a
+
 def to_grayscale(img):
-    new_img = np.zeros(img.shape, dtype='int')
-    for i in range(img.shape[0]):
-        for j in range(img.shape[1]):
-            r, g, b = img[i][j]
-            gray = 0.299*r + 0.587*g + 0.114*b
-            new_img[i][j][0], new_img[i][j][1], new_img[i][j][2] = gray, gray, gray
-
-
+    r, g, b, a = colorsys_getRGBA(img)
+    gray = 0.299*r + 0.587*g + 0.114*b
+    new_img = np.dstack((gray, gray, gray, a))
     return new_img
-
-
-
-
