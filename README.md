@@ -1,4 +1,4 @@
-<p align="center">Cancel changes
+<p align="center">
   <img width="250" height="99" src="logo.jpg">
 </p>
 
@@ -22,7 +22,7 @@ To run the GUI, run the app.py file
 python app.py
 ```
 The GUI window looks like this
-<p align="center">Cancel changes
+<p align="center">
   <img width="600" height="450" src="GUI.png">
 </p>
 
@@ -123,11 +123,6 @@ The GUI window looks like this
 
     Clicking Link to the Report opens the report.
     
-
-  
-## Contributing
-
-Contributions are always welcome!
 
   
 ## Authors
