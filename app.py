@@ -1,12 +1,13 @@
- """  19𝒟070022
-  ______          _                              _       _       
- |  ____|        | |                            | |     (_)      
- | |__   ___  ___| |__   __ _  __ _ _ __        | | __ _ _ _ __  
- |  __| / _ \/ __| '_ \ / _` |/ _` | '_ \   _   | |/ _` | | '_ \ 
- | |___|  __/\__ \ | | | (_| | (_| | | | | | |__| | (_| | | | | |
- |______\___||___/_| |_|\__,_|\__,_|_| |_|  \____/ \__,_|_|_| |_|
-                                                         
- """                                                              
+"""  
+19𝒟070022
+ ______          _                              _       _       
+|  ____|        | |                            | |     (_)      
+| |__   ___  ___| |__   __ _  __ _ _ __        | | __ _ _ _ __  
+|  __| / _ \/ __| '_ \ / _` |/ _` | '_ \   _   | |/ _` | | '_ \ 
+| |___|  __/\__ \ | | | (_| | (_| | | | | | |__| | (_| | | | | |
+|______\___||___/_| |_|\__,_|\__,_|_| |_|  \____/ \__,_|_|_| |_|
+                                                        
+"""                                                              
 
 """
 Main file containing the Image Editor
@@ -20,7 +21,7 @@ from gui import Ui_MainWindow
 import sys
 from pathlib import Path
 import os
-
+import webbrowser
 # <-------------------- Pillow library: Note that OpenCV wasn't used anywhere-------------------->
 from PIL import Image
 
@@ -76,6 +77,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.action_load_image.triggered.connect(self.load_image) # Menu Item to load image
         self.action_save_image.triggered.connect(self.save_image) # Menu Item to save image
         self.action_quit.triggered.connect(self.close) # Menu Item to close editor
+        self.menu_help.triggered.connect(self.open_repo)
 
     def load_image(self):
         """
@@ -451,6 +453,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             print("="*90)
             print(f"Performed Sharpening for extent = {extent}")
             print("="*90)
+
+    def open_repo(self):
+        """
+        Function to open repository
+        """
+        webbrowser.open('https://github.com/EeshaanJain/ImageProcessingGUI', new=2)
 
 
 if __name__ == "__main__":
