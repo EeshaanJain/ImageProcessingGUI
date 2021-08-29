@@ -577,7 +577,7 @@ class Ui_MainWindow(object):
         self.label_github_link.setText(_translate("MainWindow", "<html><head/><body><p><a href=\"https://www.github.com/EeshaanJain/ImageProcessingGUI\"><span style=\" font-size:9pt; font-weight:600; text-decoration: underline; color:#21E6C1;\">EeshaanJain</span></a></p></body></html>"))
         self.label_project_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">ImProME: Image Processing Made Easy</span></p></body></html>"))
         self.label_ee610.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">This project is done as a part of </span></p><p><span style=\" font-size:9pt; font-weight:600;\">Assignment 1 of EE 610: Image Processing</span></p></body></html>"))
-        self.label_ee610_report.setText(_translate("MainWindow", "<html><head/><body><p><a href=\"https://www.github.com/EeshaanJain/ImageProcessingGUI/Report.pdf\"><span style=\" font-size:9pt; font-weight:600; text-decoration: underline; color:#21E6C1;\">Link to the Report</span></a></p></body></html>"))
+        self.label_ee610_report.setText(_translate("MainWindow", "<html><head/><body><p><a href=\"https://www.github.com/EeshaanJain/ImageProcessingGUI/19D070022_Assignment1_Report.pdf\"><span style=\" font-size:9pt; font-weight:600; text-decoration: underline; color:#21E6C1;\">Link to the Report</span></a></p></body></html>"))
         self.menu_file.setTitle(_translate("MainWindow", "File"))
         self.menu_help.setTitle(_translate("MainWindow", "Help"))
         self.action_load_image.setText(_translate("MainWindow", "Load Image"))
