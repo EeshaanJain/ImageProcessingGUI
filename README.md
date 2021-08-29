@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center">Cancel changes
   <img width="250" height="99" src="logo.jpg">
 </p>
 
@@ -35,7 +35,6 @@ Please adhere to this project's `code of conduct`.
 ## Authors
 
 - [@EeshaanJain](https://www.github.com/EeshaanJain)
-- [@VipinSingh]()
 
   
 ## License
